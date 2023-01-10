@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="{{url('frontend/css/magnific-popup.css')}}" type="text/css">
     <link rel="stylesheet" href="{{url('frontend/css/slicknav.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{url('frontend/css/style.css')}}" type="text/css">
-    
+    @notifyCss
 </head>
 
 <body>
@@ -92,6 +92,8 @@
 
     <!-- Header Section Begin -->
    @include('frontend.fixed.header')
+   <x:notify-messages />
+
     <!-- Header End -->
 
     <!-- Hero Section Begin -->
@@ -117,6 +119,7 @@
     <!-- Search model end -->
 
     <!-- Js Plugins -->
+
     <script src="{{url('frontend/js/jquery-3.3.1.min.js')}}"></script>
     <script src="{{url('frontend/js/bootstrap.min.js')}}"></script>
     <script src="{{url('frontend/js/jquery.magnific-popup.min.js')}}"></script>
@@ -125,6 +128,7 @@
     <script src="{{url('frontend/js/jquery.slicknav.js')}}"></script>
     <script src="{{url('frontend/js/owl.carousel.min.js')}}"></script>
     <script src="{{url('frontend/js/main.js')}}"></script>
+    @notifyJs
 </body>
 
 </html>

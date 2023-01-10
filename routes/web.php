@@ -40,6 +40,12 @@ Route::get('/news',[NewController::class,'news'])->name('news');
 Route::get('/contact',[ContactController::class,'contact'])->name('contact');
 
 
+Route::post('Front_reg_submit',[HomeController::class,'Regsubmit'])->name('reg.submit');
+
+Route::post('/Front_login',[HomeController::class,'Front_login'])->name('Front_login');
+Route::get('/Front_logout',[HomeController::class,'Front_logout'])->name('Front_logout');
+
+
 
 Route::get('/reg-form', [AuthController::class, 'regForm'])->name('regForm');
 Route::post('/reg-form-submit', [AuthController::class, 'regFormSubmit'])->name('regFormSubmit');

@@ -17,8 +17,20 @@
                                 <a href="#"><i class="fa fa-instagram"></i></a>
                             </div>
                             <a href="#" class="bk-btn">Booking Now</a>
-                            <div class="language-option">
-                                <img src="{{url('frontend/img/flag.jpg')}}" alt="">
+                            @guest
+                            
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#register">
+Register
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login">
+  Login
+</button>      
+@endguest       
+@auth
+<p>{{auth()->user()->name}}</p>
+<a href="{{route('Front_logout')}}">logout</a>
+@endauth              
+<div class="language-option">
+     <img src="{{url('frontend/img/flag.jpg')}}" alt="">
                                 <span>EN <i class="fa fa-angle-down"></i></span>
                                 <div class="flag-dropdown">
                                     <ul>
@@ -70,3 +82,79 @@
             </div>
         </div>
     </header>
+
+
+    <!-- Button trigger modal -->
+
+<!-- register -->
+<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="{{route('reg.submit')}}" method="post">
+            @csrf
+      <div class="modal-body">
+
+            <div>         
+                    <label for="">Name</label>
+                    <input type="text" name="name" class="form-control" placeholder="Enter your name">
+</div>
+<div>        <div>         
+                    <label for="">Email</label>
+                    <input type="email" name="email" class="form-control" placeholder="Enter your email">
+</div>
+  
+                    <label for="">Password</label>
+                    <input type="password" name="password"class="form-control"  placeholder="Enter your password">
+</div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="{{route('Front_login')}}" method="post">
+            @csrf
+      <div class="modal-body">
+
+<div>        <div>         
+                    <label for="">Email</label>
+                    <input type="email" name="email" class="form-control" placeholder="Enter your email">
+</div>
+  
+                    <label for="">Password</label>
+                    <input type="password" name="password"class="form-control"  placeholder="Enter your password">
+</div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+      </form>
+
+    </div>
+  </div>
+</div>
